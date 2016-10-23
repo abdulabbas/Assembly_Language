@@ -1,0 +1,91 @@
+.global main
+
+.func main
+
+main:
+@push the link register to the stack
+push{lr}
+BAL _get_input @Goto _get_input
+
+_get_input:
+@load & print the input prompt
+LDR R0,=prompt
+BL printf
+
+@define the pattern for scanf to store the address
+LDR R0,=prompt
+LDR R1,=nums
+BL scanf
+
+@validate input
+BAL _validate
+
+_validate:
+@load & derefrences the nums
+LDR R0,=nums
+LDR R0, [R0]
+
+@test for a positive integer value
+CMP R0,#0
+
+@Goto invalid if Less than or equal to 0
+BLE _invalid
+
+@Else Goto test
+BAL _test
+
+_invalid:
+@output the invalid message
+LDR R0,=invalid
+BL printf
+
+@Goto _get_input
+BAL _get_input
+
+_test:
+@load & derefrence the counter,& nums
+LDR R0,=counter
+LDR R0, [R0]
+LDR R1,=nums
+LDR R1,[R1]
+
+@compare values
+CMP R0,R1
+BLE _loop  @if counter <= nums
+BGT _message  @if counter > nums
+
+_loop:
+@load & derefrence the counter, & the sum into an alternative registers
+LDR R0,=counter
+LDR R3,[R0]
+LDR R1,=sum
+LDR R4,[R1]
+
+@add values of sum & counter then store it into the sum
+ADD R2,R3,R4
+STR R2,[R1]
+
+@increment the counters value & then store it back into the counter
+ADD R2,R2,#1
+STR R2,[R0]
+
+@return to the loops conditional test
+BAL _test
+
+_message:
+@load & print the output string, the nums, & the sum
+LDR R0,=output
+LDR R1,=nums
+LDR R1,[R1]
+LDR R2,=sum
+BL printf
+
+@Goto end
+BAL _end
+
+_end:
+@restore the Link Register to the Program Counter
+pop{pc}
+
+//BX LR
+

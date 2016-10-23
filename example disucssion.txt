@@ -1,0 +1,31 @@
+Paul Conrad Instructor Manager
+Example of Chapters 3 and 4 Attachment
+Collapse
+
+This is my example of doing a chapter 3 and 4 reading. The text below can also be found in discussion board example csc11.docx.
+
+You can also just paste the MS Word document in your thread you create (note: I personally decided to preserve the formatting - you can do this if you want):
+
+Name: Paul Conrad
+
+Chapter and Title:  Chapter 3 - FIRST TIME OUT / Chapter 4 – BITS OF A RISC MACHINE
+
+Explain Four Key Concepts From Chapter Reading Interest You
+
+1. Creating A Source File:  I learned that to create an assembly language program in Raspbian, that I need to go through a process of writing / compiling / linking before I can have an executable file. First, I need to write the assembly language program using an editor such as nano or vi (even vim). Next, I compile and link the program; the easiest way I found to do this is to type in the following from the terminal: g++ my_source_file_name.s -o my_executable_file_name
+
+Where my_source_file_name.s is the name of my source file, and my_executable_file_name is the name of the executable/object code/machine code file that I run.
+
+2. Commenting: I learned that commenting is very important with assembly language because we are working with a low level language and sometimes instructions might not be all that clear as to what they are doing. When it comes to commenting, I learned that commenting the relevant information for the instruction is important, for example:
+
+               add r0, r1, r2 // add r1 to r2 and store the result in r0
+
+The comment does not really tell much, if the comment told what was being stored in r0, r1, and r2, would be much better.
+
+3.Number Conversions: In Chapter 4, I learned the basic tenets of converting from decimal to binary to hexadecimal, and vis-versa. I learned why this is important for assembly language programming, in fact, for programming in general because we learned from this chapter how computers store numbers!
+
+4. Binary Arithmetic: I learned how to do binary arithmetic and its importance with assembly language programming.
+
+Comments/Questions?
+
+I found these chapters full of good, useful information, and I cannot wait to learn more. One question, what are the steps the compiler uses to create the machine code?
